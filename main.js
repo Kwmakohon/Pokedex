@@ -1,6 +1,6 @@
 
-const _searchBttn = document.querySelector("button #search");
-const _randomBttn = document.querySelector("button #random");
+const _searchBttn = document.querySelector("#searchbttn");
+const _randomBttn = document.querySelector("#randombttn");
 const _search = document.querySelector("#search");
 const _hgt = document.querySelector("#height");
 const _wgt = document.querySelector("#weight");
@@ -12,6 +12,7 @@ const _genus = document.querySelector("#genus");
 const _flavor = document.querySelector("#flavor");
 const _results = document.querySelector("#results");
 const _loader = document.querySelector(".loader");
+const _message = document.querySelector("#message")
 
 const url = "https://pokeapi.co/api/v2/";
 const numOfPokemon = 807
@@ -63,6 +64,13 @@ const fetchAndMapAllResults = async (q) => {
   _results.classList.add("hidden");
 
   let res = await Promise.all([getPokemon(q), getPokemonSpecies(q)]);
+  
+  if (!res[0]) {
+    _message.classList.remove("hidden")
+    return
+  } else {
+    _message.classList.add("hidden")
+  }
 
   _hgt.innerHTML = res[0].height;
   _wgt.innerHTML = res[0].weight;
