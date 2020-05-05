@@ -9,6 +9,8 @@ const _type1 = document.querySelector(".type1");
 const _name = document.querySelector(".name");
 const _genus = document.querySelector(".genus");
 const _flavor = document.querySelector(".flavor");
+const _results = document.querySelector(".results");
+const _loader = document.querySelector(".loader");
 
 
 const url = "https://pokeapi.co/api/v2/"
@@ -22,7 +24,7 @@ const getPokemonSpecies = async (q) => {
         const response = await fetch(endpoint)
         if (response.ok) {
             let jsonResponse = await response.json();
-            mapPokemonSpeciesResults(jsonResponse)
+            return jsonResponse
         }
     } catch(error){
         console.log(error);
@@ -37,7 +39,7 @@ const getPokemon = async (q) => {
         const response = await fetch(endpoint)
         if (response.ok) {
             let jsonResponse = await response.json();
-            mapPokemonResults(jsonResponse);
+            return jsonResponse
         }
     } catch(error){
         console.log(error);
@@ -47,43 +49,45 @@ const getPokemon = async (q) => {
 _searchBttn.addEventListener("click", (e) => {
     const query = search.value.toLowerCase();
     e.preventDefault();
-    getPokemonSpecies(query);
-    getPokemon(query);
+    mapAllResults(query);
 }); 
 
 _randomBttn.addEventListener("click", (e) => {
     const num = Math.floor(Math.random()*807);
     e.preventDefault();
-    getPokemonSpecies(num);
-    getPokemon(num);
+    mapAllResults(num);
 })
 
-function mapPokemonResults(res) {
-
-    _hgt.innerHTML = res.height
-    _wgt.innerHTML = res.weight
-    _img.src = res.sprites.front_default
+const mapAllResults = async (q) => {
+    _loader.classList.remove("hidden");
+    _results.classList.add("hidden");
     
-    if (res.types.length > 1){
-        if (res.types[0].slot === 1){
-            _type0.innerHTML = res.types[0].type.name
-            _type1.innerHTML = res.types[1].type.name
+    let res = await Promise.all([getPokemon(q), getPokemonSpecies(q)])
+    
+    _hgt.innerHTML = res[0].height
+    _wgt.innerHTML = res[0].weight
+    _img.src = res[0].sprites.front_default
+
+    if (res[0].types.length > 1){
+        if (res[0].types[0].slot === 1){
+            _type0.innerHTML = res[0].types[0].type.name
+            _type1.innerHTML = res[0].types[1].type.name
         } else {
-            _type0.innerHTML = res.types[1].type.name
-            _type1.innerHTML = res.types[0].type.name
+            _type0.innerHTML = res[0].types[1].type.name
+            _type1.innerHTML = res[0].types[0].type.name
         }
     }else {
-        _type0.innerHTML = res.types[0].type.name}
-}
+        _type0.innerHTML = res[0].types[0].type.name}
 
-function mapPokemonSpeciesResults(res) {
+    _name.innerHTML = res[1].name
     
-    _name.innerHTML = res.name
-    
-    const genusResult = res.genera.find((i) => i.language.name === "en")
+    const genusResult = res[1].genera.find((i) => i.language.name === "en")
     _genus.innerHTML = genusResult.genus;
 
-    const flavorResult = res.flavor_text_entries.find(i => i.language.name === "en")
+    const flavorResult = res[1].flavor_text_entries.find(i => i.language.name === "en")
     //console.log(flavorResult)
    _flavor.innerHTML = flavorResult.flavor_text;
+
+   _loader.classList.add("hidden"); 
+   _results.classList.remove("hidden");
 }
