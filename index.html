@@ -1,43 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta title="Pokedex" />
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <form>
-    <div class="search">
-      <label for="search">Enter Pokemon name</label>
-      <input type="text" name="search" id="search">
+  <head>
+    <meta title="Pokedex" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <form>
+      <div class="search">
+        <label for="search">Enter Pokemon name</label>
+        <input type="text" name="search" id="search" />
+      </div>
+      <button type="submit" id="search">Search</button>
+    </form>
+    <button type="submit" id="random">Random</button>
+    <img src="" alt="default Pokemon image" />
+    <div id="results">
+      <span id="name"> </span>
+      <span id="genus"> </span>
+      <span id="type0"> </span>
+      <span id="type1"> </span>
+      <span id="height"> </span>
+      <span id="weight"> </span>
+      <span id="flavor"> </span>
     </div>
-   <button type="submit" class="search">Search</button>
-  </form>
-  <button type="submit" class="random">Random</button>
-  <img src="" alt="default Pokemon image">
-  <div class="results">
-  <span class="name">
-
-  </span>
-  <span class="genus">
-
-  </span>
-  <span class="type0">
-
-  </span>
-  <span class="type1">
-
-  </span>
-  <span class="height">
-
-  </span>
-  <span class="weight">
-
-  </span>
-  <span class="flavor">
-
-  </span>
-</div>
-<div class="loader hidden"></div>
+    <div class="loader hidden"></div>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
