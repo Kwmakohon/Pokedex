@@ -4,7 +4,7 @@ const _randomBttn = document.querySelector("#randombttn");
 const _search = document.querySelector("#search");
 const _hgt = document.querySelector("#height");
 const _wgt = document.querySelector("#weight");
-const _img = document.querySelector("img");
+const _img = document.querySelector("#pokemonimg");
 const _type0 = document.querySelector("#type0");
 const _type1 = document.querySelector("#type1");
 const _name = document.querySelector("#name");
@@ -102,6 +102,7 @@ _searchBttn.addEventListener("click", (e) => {
 });
 
 _randomBttn.addEventListener("click", (e) => {
+  _search.value = "";
   const num = Math.floor(Math.random() * numOfPokemon);
   e.preventDefault();
   fetchAndMapAllResults(num);

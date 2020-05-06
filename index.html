@@ -3,26 +3,35 @@
   <head>
     <meta title="Pokedex" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto|VT323&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2db44e0c37.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <form>
-      <div class="search">
-        <label for="search">Enter Pokemon name</label>
-        <input type="text" name="search" id="search" />
+    <div class="container">
+      <div id="header">
+        <img >
       </div>
-      <button type="submit" id="searchbttn">Search</button>
-    </form>
-    <button type="submit" id="randombttn">Random</button>
-    <img src="" alt="default Pokemon image" />
-    <div id="results">
+      <div id="input-container">
+        <form>
+          <div id="search-bar">
+            <input type="text" name="search" id="search" placeholder="Enter Pokemon name" />
+            <button type="submit" id="searchbttn"><i class="fas fa-search"></i></button>
+          </div>
+        </form>
+        <button type="button" id="randombttn">Random</button>
+      </div>
+    
+      <div id="results">
+        <img src="" id="pokemonimg"/>
+        <span id="name"> </span>
+        <span id="genus"> </span>
+        <span id="type0"> </span>
+        <span id="type1"> </span>
+        <span id="height"> </span>
+        <span id="weight"> </span>
+        <span id="flavor"> </span>
+      </div>
       <span class ="hidden" id="message">No Pokemon found. Try again or hit the random button!</span>
-      <span id="name"> </span>
-      <span id="genus"> </span>
-      <span id="type0"> </span>
-      <span id="type1"> </span>
-      <span id="height"> </span>
-      <span id="weight"> </span>
-      <span id="flavor"> </span>
     </div>
     <div class="loader hidden"></div>
     <script src="main.js"></script>
