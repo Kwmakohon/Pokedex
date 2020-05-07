@@ -64,11 +64,13 @@ const determineType = (res) => {
 const fetchAndMapAllResults = async (q) => {
   _loader.classList.remove("hidden");
   _results.classList.add("hidden");
+  _message.classList.add("hidden");
 
   let res = await Promise.all([getPokemon(q), getPokemonSpecies(q)]);
   
   if (!res[0]) {
     _message.classList.remove("hidden")
+    _loader.classList.add("hidden");
     return
   } else {
     _message.classList.add("hidden")
@@ -97,7 +99,13 @@ const fetchAndMapAllResults = async (q) => {
   _results.classList.remove("hidden");
 };
 
+
+
 _searchBttn.addEventListener("click", (e) => {
+  if (_search.value.trim() === ""){
+    alert("Search cannot be empty")
+    return
+  }
   const query = _search.value.toLowerCase();
   e.preventDefault();
   fetchAndMapAllResults(query);
