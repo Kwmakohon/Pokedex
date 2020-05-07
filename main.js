@@ -72,8 +72,8 @@ const fetchAndMapAllResults = async (q) => {
     _message.classList.add("hidden")
   }
 
-  _hgt.innerHTML = res[0].height;
-  _wgt.innerHTML = res[0].weight;
+  _hgt.innerHTML = `HT ${res[0].height / 10}m`;
+  _wgt.innerHTML = `WT ${res[0].weight / 10}kg`;
   _img.src = res[0].sprites.front_default;
 
   determineType(res);
