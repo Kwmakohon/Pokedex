@@ -11,6 +11,24 @@ body {
   width: 600px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#header{
+  background-color: rgb(233, 0, 19);
+  margin-bottom: 2rem;
+  color: white;
+  text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+  font-family: 'VT323', monospace;
+  width: 100%;
+  font-size: 30pt;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid rgb(117, 0, 15);
+  border-radius: 4px;
 }
 
 input {
@@ -39,6 +57,7 @@ button:hover {
 #search { 
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+  outline: none;
 } 
 
 #searchbttn {
@@ -66,9 +85,11 @@ button:hover {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  border-radius: 4px;
   padding: 1rem;
   margin-top: 5rem;
   background-image: url(Grid.jpg);
+  box-shadow:  0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .hidden {
@@ -210,9 +231,27 @@ div.box .box:nth-of-type(2) {
 }
 
 .loader > div {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+ .loader > div > div {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.25);
+ }
+
+#message {
+  padding: 1rem;
+  font-family: 'VT323', monospace;
+  font-size: 18pt;
+  border: 2px solid rgb(233, 0, 19);
+  margin: 1rem;
 }
