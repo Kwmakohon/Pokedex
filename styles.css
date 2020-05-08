@@ -1,5 +1,5 @@
 body {
-  padding: 100px;
+  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -200,7 +200,6 @@ div.box .box:nth-of-type(2) {
 }
 
 .box > .box > .box > span{
-  background-color: white;
   border: 2px solid black;
   border-radius: 4px;
   text-transform: uppercase;
@@ -208,6 +207,8 @@ div.box .box:nth-of-type(2) {
   padding: 5px;
   width: 6rem;
   text-align: center;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .loader {
@@ -219,7 +220,7 @@ div.box .box:nth-of-type(2) {
   height: 100px;
   animation: spin 2s linear infinite;
   align-self: center;
-  margin: 2rem;
+  margin: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,4 +255,76 @@ div.box .box:nth-of-type(2) {
   font-size: 18pt;
   border: 2px solid rgb(233, 0, 19);
   margin: 1rem;
+}
+
+.bug {
+  background-color: #A8B820;	
+}
+
+.dark {
+  background-color: #705848;
+}
+
+.dragon { 
+  background-color: #7038f8;
+}
+
+.electric {
+  background-color: #F8d030;
+}
+
+.fairy {
+  background-color: #ee99ac;
+}
+
+.fighting {
+  background-color: #c03028;
+}
+
+.fire {
+  background-color: #f08030;
+}
+
+.flying {
+  background-color: #A890F0;
+}
+
+.ghost {
+  background-color: #705898;
+}
+
+.grass {
+  background-color: #78C850;
+}
+
+.ground {
+  background-color: #927D44;
+}
+
+.ice {
+  background-color: #BCE6e6;
+}
+
+.normal {
+  background-color: #A8A878;
+}
+
+.poison {
+  background-color: #A040A0;
+}
+
+.psychic {
+  background-color: #F85888;
+}
+
+.rock {
+  background-color: #B8A038;
+}
+
+.steel {
+  background-color: #b8b8d0;
+}
+
+.water {
+  background-color: #6890F0;
 }

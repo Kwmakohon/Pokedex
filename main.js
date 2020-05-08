@@ -46,20 +46,28 @@ const getPokemon = async (q) => {
 };
 
 const determineType = (res) => {
-  _type1.classList.remove("hidden");
   if (res[0].types.length > 1) {
     if (res[0].types[0].slot === 1) {
       _type0.innerHTML = res[0].types[0].type.name;
+      _type0.className = res[0].types[0].type.name
+
       _type1.innerHTML = res[0].types[1].type.name;
+      _type1.className = res[0].types[1].type.name
     } else {
       _type0.innerHTML = res[0].types[1].type.name;
+      _type0.className = res[0].types[1].type.name
+
       _type1.innerHTML = res[0].types[0].type.name;
+      _type1.className = res[0].types[0].type.name
     }
   } else {
     _type0.innerHTML = res[0].types[0].type.name;
-    _type1.classList.add("hidden");
+    _type0.className = res[0].types[0].type.name
+
+    _type1.className = "hidden";
   }
 }
+
 
 const fetchAndMapAllResults = async (q) => {
   _loader.classList.remove("hidden");
